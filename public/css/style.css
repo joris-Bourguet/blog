@@ -1,0 +1,76 @@
+/* ============================ FONT RULES ============================ 
+
+font-family: 'Indie Flower', cursive;
+
+font-family: 'Raleway', sans-serif;
+
+font-family: 'Vollkorn', serif; 
+
+*/
+
+:root {
+    --primary-color: #000;
+    --secondary-color: #fac564;
+    --text-color: #fff;
+    --secondary-text-color: #6c6c6c;
+    --typography-primary-font-family: "Raleway";
+    --typography-primary-font-weight: 700;
+    --typography-text-font-family: "Raleway";
+    --typography-text-font-weight: 400;
+    --typography-accent-font-family: "Indie Flower";
+    --typography-accent-font-weight: 400;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    border: 0;
+    margin: 0;
+}
+
+* {
+    font-family: var(--typography-text-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--typography-primary-font-family);
+    font-weight: var(--typography-primary-font-weight);
+}
+
+
+/* ============================== NAVBAR TOP ============================== */
+
+#menuNav {
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+#menuLogo img {
+    padding: 0.5em;
+}
+
+#menuLink nav ul {
+    display: flex;
+}
+
+#menuLink li {
+    list-style: none;
+}
+
+#menuLink li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2em;
+    padding: 0.2em;
+    margin: 0.2em;
+}

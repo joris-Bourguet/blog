@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+{% block body %}
+
+	{% if editMode %}
+		<h2>Modification de l'article</h2>
+	{% else %}
+		<h2>Création d'un article</h2>
+	{% endif %}
+
+
+	{{ form_start(formArticle) }}
+
+	{{ form_row(formArticle.title, 
+        {
+            'attr': {
+                'placeholder': 'titre de l\'article'
+            }
+        }) 
+    }}
+    {{ form_row(formArticle.content, 
+        {
+            'attr': {
+                'placeholder': 'Description de l\'article'
+            }
+        }) 
+    }}
+	{{ form_row(formArticle.image, 
+        {
+            'attr': {
+                'placeholder': 'Image url'
+            }
+        }) 
+    }}
+
+
+	<button type="submit">
+		{% if editMode %}
+			Enregistrer
+		{% else %}
+			Ajouter l'article
+		{% endif %}
+	</button>
+
+	{{ form_end(formArticle) }}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog - Joris Bourguet{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> {% block stylesheets %}{% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300;400;700&family=Vollkorn:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section id="menuNav">
+        <div id="menuLogo">
+            <a href="{{ path('home') }}"><img src="https://placehold.it/100x50" alt="Logo Entreprise"></a>
+        </div>
+        <div id="menuLink">
+            <nav>
+                <ul>
+                    <li><a href="{{ path('home') }}">Accueil</a></li>
+                    <li><a href="#">A propos</a></li>
+                    <li><a href="{{ path('blog') }}">Blog</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="{{path('article_create')}}">Créer un article</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    {% block body %}{% endblock %} {% block javascripts %}{% endblock %}
+</body>
+
+</html>
