@@ -6,15 +6,31 @@
 		<h2>
 			{{article.title}}
 		</h2>
-		<p class="metadata">Créé à
-			{{article.createdAt | date('d/m/Y') }}
-			le
-			{{article.createdAt | date('H:i') }}
-			dans la catégorie test</p>
 		<div class="content">
 			<img src="{{article.image}}" alt="">
-			<p>{{article.content}}</p>
+			<p class="metadata">Créé à
+				{{article.createdAt | date('d/m/Y') }}
+				le
+				{{article.createdAt | date('H:i') }}
+				dans la catégorie
+				<strong>{{article.category.title}}</strong>
+			</p>
+			<p>{{article.content | raw}}</p>
 		</div>
 	</article>
+	<section id="commentaires">
+		<h3>Commentaires :
+		</h3>
+		{% for comment in article.comments %}
+			<div class="author">
+				Auteur :
+				<strong>{{comment.author | raw}}</strong>
+			</div>
+			<br>
+			<div class="content">
+				{{comment.content | raw}}
+			</div>
+		{% endfor %}
 
+	</section>
 {% endblock %}

@@ -12,7 +12,9 @@
 				{{article.createdAt | date('d/m/Y') }}
 				le
 				{{article.createdAt | date('H:i') }}
-				dans la catégorie test</p>
+				|
+				 <strong>{{article.category.title}}</strong>
+			</p>
 			<div class="content">
 				<img src="{{article.image}}" alt="">
 				<p>{{article.content}}</p>
