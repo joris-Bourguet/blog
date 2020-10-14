@@ -30,11 +30,11 @@ class ArticleFixtures extends Fixture
             for ($j=1; $j <= mt_rand(4, 10); $j++) { 
                 $article = new ArticleEntity();
 
-                $content = '<p>' . join($faker->paragraphs(5), '</p><p>') . '<p>';
+                $content = join($faker->paragraphs(5));
 
                 $article->setTitle($faker->sentence())
                         ->setContent($content)
-                        ->setImage($faker->imageUrl(350, 150))
+                        ->setImage($faker->imageUrl(200, 100))
                         ->setCreatedAt($faker->dateTimeBetween('- 6 months'))
                         ->setCategory($category); 
 
@@ -44,7 +44,7 @@ class ArticleFixtures extends Fixture
                 for ($k=1; $k <= mt_rand(6, 10); $k++) { 
                     $comment = new Comment();
 
-                    $content = '<p>' . join($faker->paragraphs(5), '</p><p>') . '<p>';
+                    $content = join($faker->paragraphs(5));
                     $days = (new \DateTime())->diff($article->getCreatedAt())->days;
 
                     $comment->setAuthor($faker->name)

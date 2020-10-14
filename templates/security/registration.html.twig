@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>test deded </h1>
+    {{ form_start(formSecurity) }}
+    {{ form_row(formSecurity.username) }}
+    {{ form_row(formSecurity.email) }}
+    {{ form_row(formSecurity.password) }}
+    {{ form_row(formSecurity.comfirm_password) }}
+    <button type="submit">Inscription</button>
+    {{ form_end(formSecurity) }}
+{% endblock %}
+

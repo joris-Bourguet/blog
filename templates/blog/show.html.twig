@@ -19,18 +19,32 @@
 		</div>
 	</article>
 	<section id="commentaires">
-		<h3>Commentaires :
+		<h3>{{ article.comments | length }}
+			commentaires :
 		</h3>
 		{% for comment in article.comments %}
-			<div class="author">
-				Auteur :
-				<strong>{{comment.author | raw}}</strong>
+			<div class="container" style="padding: 20px 0;">
+				<div class="author">
+					<strong>{{comment.author | raw}}</strong> | {{comment.createdAt | date('d/m/Y')}} à {{comment.createdAt | date('H:i')}}
+				</div>
+				<br>
+				<div class="content">
+					{{comment.content | raw}}
+				</div>
 			</div>
-			<br>
-			<div class="content">
-				{{comment.content | raw}}
-			</div>
+
 		{% endfor %}
 
+		{% if app.user %}
+		{{form_start(commentForm)}}
+		{{form_row(commentForm.author, {'attr': {'placeholder': "Votre nom"}})}}
+		{{form_row(commentForm.content, {'attr': {'placeholder': "Votre commentaire"}})}}
+
+		<button type="submit">Valider</button>
+		{{form_end(commentForm)}}
+		
+		{% else %}
+			<p><a href="{{path('app_login')}}">Connecté vous</a> pour laisser vous aussi un commentaire</p>
+		{% endif %}
 	</section>
 {% endblock %}

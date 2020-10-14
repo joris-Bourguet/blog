@@ -21,6 +21,11 @@
                     <li><a href="{{ path('blog') }}">Blog</a></li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="{{path('article_create')}}">Créer un article</a></li>
+                    {% if not app.user %}
+                    <li><a href="{{path('app_login')}}">Connexion</a></li>
+                    {% else %}
+                    <li><a href="{{path('app_logout')}}">Deconexion</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

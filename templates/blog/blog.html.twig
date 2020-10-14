@@ -17,7 +17,7 @@
 			</p>
 			<div class="content">
 				<img src="{{article.image}}" alt="">
-				<p>{{article.content}}</p>
+				<p>{{article.content | raw}}</p>
 				<a href="{{ path('article_details', {'id': article.id}) }}">En savoir plus</a>
 			</div>
 		</article>
